@@ -33,8 +33,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 <Link 
                     key={link.to} 
                     to={link.to}
-                    className="flex items-center gap-2 bg-gray-100 border-t border-b border-gray-200 -mx-4 px-8 py-4 text-gray-800 hover:bg-gray-200 transition-colors duration-200"
-                >
+                    className="flex items-center gap-2 bg-gray-100 border-t border-b border-gray-200 -mx-4 px-8 py-4 text-gray-800 hover:bg-gray-200 transition-colors duration-200">
                     <link.icon size={18} />
                     {link.label}
                 </Link>
