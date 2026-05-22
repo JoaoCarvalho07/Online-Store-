@@ -11,7 +11,10 @@ export default function Header() {
 
   return (
     <header className="relative flex items-center justify-between px-8 py-4 border-b-2 border-gray-500">
-    <span className="font-bold text-lg tracking-wide w-1/3">THE ONLINE STORE</span>
+        <Link to="/" className="font-bold text-xl tracking-wide w-1/3 text-gray-900">
+            THE ONLINE STORE
+        </Link>
+        
         <nav className="hidden md:flex gap-6 text-sm text-gray-800 absolute left-1/2 -translate-x-1/2">
             {navLinks.map((link) => (
             <Link key={link.to} to={link.to} className="hover:underline decoration-2 underline-offset-4">{link.label}</Link>

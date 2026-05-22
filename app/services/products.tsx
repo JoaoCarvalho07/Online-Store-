@@ -11,7 +11,12 @@ export async function getProducts(limit = 9, skip = 0, sortBy = "", order = "", 
   if (order) url.searchParams.set("order", order);
   
   const response = await fetch(url.toString());
-  //console.log(url)
-  //console.log(response)
+
+  return response.json();
+}
+
+
+export async function getProductById(id: string) {
+  const response = await fetch(`https://dummyjson.com/products/${id}`);
   return response.json();
 }
