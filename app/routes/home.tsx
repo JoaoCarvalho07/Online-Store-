@@ -48,7 +48,7 @@ export default function Home() {
     <div className="mt-8">
       <div className="flex">
         <div className="flex-1">
-          <div className="flex">
+          <div className="flex gap-8">
             <SortDropDown />
 
             <div className="ml-auto mr-4">

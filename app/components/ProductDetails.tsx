@@ -8,8 +8,9 @@ interface ProductCardProps {
 
 export default function ProductDetails({ product }: ProductCardProps) {
   const cart = useCart();
+  
   return (
-    <div className="ml-8 flex flex-col mr-8">
+    <div className="flex flex-col mb-8">
         <span className="font-bold text-2xl text-gray-900"> {product.title} </span>
         <span className="font-bold text-2xl text-gray-900"> ${product.price} </span>
         <button 
@@ -17,7 +18,6 @@ export default function ProductDetails({ product }: ProductCardProps) {
           onClick={() => cart.addToCart(product)}
           >
           Add to Cart
-          
         </button>
         <hr className="mt-6 border-gray-600 border-1" />
         <p className="mt-6 font-semibold text-gray-900">Product Details</p>

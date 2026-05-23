@@ -11,7 +11,7 @@ export async function loader({ params }: { params: { id: string } }) {
 export default function Product() {
     const { product } = useLoaderData(); 
     return(
-        <div className="flex flex-col md:flex-row mt-8 ml-8 mr-8">
+        <div className="flex flex-col md:flex-row mt-8 mx-8 gap-8">
             <div className="mb-8">
                 <img 
                     src={product.images[0]} 

@@ -12,16 +12,16 @@ export default function CartItem({ product,quantity }: ProductCartProps) {
     const {removeFromCart, updateQuantity } = useCart();
 
     return (
-    <div className ="flex ml-6 mt-4 border-b">
-        <img src = {product.thumbnail} className ="border mb-4"/>
+    <div className ="flex mx-6 mt-4 border-b">
+        <img src={product.thumbnail} className="border mb-4 w-24 h-24 md:w-40 md:h-40 object-contain" />
         <div className="flex-1 flex flex-col">
             <h2 className="ml-6"> {product.title}  </h2>
             <p className="ml-6 mt-2"> ${product.price}  </p>
             <div className="flex items-center gap-4 ml-6 mt-auto mb-4">
                 <div className="border rounded-lg">
                     <button 
-                    className="px-2 py-1 cursor-pointer hover:bg-gray-10 mr-2"
-                    onClick={() => updateQuantity(product.id,quantity)}
+                        className="px-2 py-1 cursor-pointer hover:bg-gray-10 mr-2"
+                        onClick={() => updateQuantity(product.id,quantity -1)}
                     > -
                     </button>
 
@@ -29,7 +29,7 @@ export default function CartItem({ product,quantity }: ProductCartProps) {
                     <button 
                         className="px-2 py-1 cursor-pointer hover:bg-gray-100 ml-2"
                         onClick={() => updateQuantity(product.id,quantity+1)}
-                        > + 
+                    > + 
                     </button>
                 </div>
 
