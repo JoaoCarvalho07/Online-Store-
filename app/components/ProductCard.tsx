@@ -14,6 +14,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         className="w-full h-98 object-contain border"      />
       <p className="mt-2">{product.title}</p>
       <p>${product.price}</p>
+      <p className="text-sm text-gray-600 mt-1">⭐ {product.rating}</p>
     </Link>
   );
 }

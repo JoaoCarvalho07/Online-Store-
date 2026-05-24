@@ -5,9 +5,7 @@ import { navLinks } from "~/constants/navLinks";
 import NavigationMenu from "./NavigationMenu";
 
 export default function Header() {
- const [isOpen, setIsOpen] = useState(false);
-
-
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <header className="relative flex items-center justify-between px-8 py-4 border-b-2 border-gray-500">
@@ -37,8 +35,12 @@ export default function Header() {
             </Link>
         </div>
 
+        {isOpen && (
+        <div 
+    className="md:hidden fixed inset-0 top-[100px] bg-black/50 z-40"            onClick={() => setIsOpen(false)}
+        />
+        )}
         <NavigationMenu isOpen={isOpen} onClose={() => setIsOpen(false)} />
-            
     </header>
   );
 }

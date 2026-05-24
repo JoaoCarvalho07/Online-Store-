@@ -10,16 +10,19 @@ export default function CategoryFilter({ category }: CategoryProps) {
 
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
+
+    const selectedCategories = searchParams.get("categories")?.split(",") || [];
+    const isChecked = selectedCategories.includes(category.name);
     
-    const handleCheckbox = (category: string, checked: boolean) => {
+    const handleCheckbox = (categoryName: string, checked: boolean) => {
       const params = new URLSearchParams(searchParams);
       const current = params.get("categories") || "";
       const selected = current ? current.split(",") : [];
 
       if (checked) {
-        selected.push(category);
+        selected.push(categoryName);
       } else {
-        const index = selected.indexOf(category);
+        const index = selected.indexOf(categoryName);
         selected.splice(index, 1);
       }
 
@@ -33,10 +36,16 @@ export default function CategoryFilter({ category }: CategoryProps) {
       navigate(`/?${params.toString()}`);
     }
 
+    
     return (
-    <div className="flex items-center gap-3 ">
-      <input type="checkbox" id={category.name} onChange={(e) => handleCheckbox(category.name, e.target.checked)} />
-      <label htmlFor={category.name}>{category.name}</label>
-    </div>
-  );
+      <div className="flex items-center gap-3">
+        <input 
+          type="checkbox" 
+          id={category.name} 
+          checked={isChecked}
+          onChange={(e) => handleCheckbox(category.name, e.target.checked)} 
+        />
+        <label htmlFor={category.name}>{category.name}</label>
+      </div>
+    );
 }
