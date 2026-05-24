@@ -3,9 +3,12 @@ import { useState } from "react";
 import { Search, User, ShoppingCart, Home, ShoppingBag, Info, Phone, BookOpen } from "lucide-react";
 import { navLinks } from "~/constants/navLinks";
 import NavigationMenu from "./NavigationMenu";
+import { useCart } from "~/context/CartContext";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const { cartItems } = useCart();
+  const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
     <header className="relative flex items-center justify-between px-8 py-4 border-b-2 border-gray-500">
@@ -27,17 +30,24 @@ export default function Header() {
             <button className="hover:text-gray-400 transition-colors duration-200 cursor-pointer">
                 <Search size={20} />
             </button>
+
             <Link to="/profile" className="hover:text-gray-400 transition-colors duration-200">
                 <User size={20} />
             </Link>
-            <Link to="/cart" className="hover:text-gray-400 transition-colors duration-200">
+
+            <Link to="/cart" className="hover:text-gray-400 transition-colors duration-200 relative">
                 <ShoppingCart size={20} />
+                {cartCount > 0 && (
+                    <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
+                    {cartCount}
+                    </span>
+                )}
             </Link>
         </div>
-
         {isOpen && (
         <div 
-    className="md:hidden fixed inset-0 top-[100px] bg-black/50 z-40"            onClick={() => setIsOpen(false)}
+        className="md:hidden fixed inset-0 top-[100px] bg-black/50 z-40"           
+        onClick={() => setIsOpen(false)}
         />
         )}
         <NavigationMenu isOpen={isOpen} onClose={() => setIsOpen(false)} />

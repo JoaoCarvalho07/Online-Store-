@@ -11,7 +11,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     if (!isOpen) return null;
 
     return (
-        <div className="md:hidden absolute top-[calc(100%+2px)] w-full left-0 bg-white border-b-8 border-gray-500 z-50 flex flex-col p-4 gap-2">           
+        <div className="md:hidden absolute top-[calc(100%)] w-full left-0 bg-white border-b-8 border-gray-500 z-50 flex flex-col p-4 gap-2">           
             <div className="flex gap-6 justify-center border-gray-500 border-b-8 pb-2 -mx-4 px-4">                   
                 <button className="flex items-center gap-2">
                     <Search size={20} />
